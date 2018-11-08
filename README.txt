@@ -1,0 +1,1 @@
+this is a architecture of cordova

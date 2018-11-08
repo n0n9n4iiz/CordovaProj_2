@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Login page</title>
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="ejs.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script> <!--แทนที่ของ firestore-->
+    <script src="cordova.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyC3ztwr4afyyOLIaRKau1LbHMRsddcME0k",
+        authDomain: "shopee-1bbd4.firebaseapp.com",
+        databaseURL: "https://shopee-1bbd4.firebaseio.com",
+        projectId: "shopee-1bbd4",
+        storageBucket: "shopee-1bbd4.appspot.com",
+        messagingSenderId: "285699665152"
+      };
+      firebase.initializeApp(config);
+    </script>
+</head>
+  <body>
+
+        <ons-page>
+                <div style="text-align: center; margin-top: 30px;">
+                 <p style="margin-top: 30px;">
+                    <ons-button onclick="logout()">Logout</ons-button>
+                  </p>
+                </div>
+              </ons-page>
+              <script>
+              function logout(){
+                firebase.auth().signOut().then(function() {
+                // Sign-out successful.
+                ons.notification.alert('Logout success!!').then(function(){
+                    window.location.href = 'index.html';
+                })
+                
+                }).catch(function(error) {
+                // An error happened.
+                });
+              }
+              </script>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  </body>
+
+</html>
